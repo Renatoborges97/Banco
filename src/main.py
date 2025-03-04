@@ -1,6 +1,7 @@
 import textwrap
 import deposito 
 import extrato_banco
+import saque
 
 def menu():
     menu = """\n
@@ -35,6 +36,18 @@ def main():
             valor = float(input("Digite o valor do depósito: "))
 
             saldo, extrato = deposito.depositar(saldo, valor, extrato)
+
+        elif opcao == 's':
+            valor = float(input("Digite o valor do Saque: "))
+
+            saldo, extrato, numero_saque = saque.sacar (
+                saldo=saldo,
+                valor=valor,
+                extrato=extrato,
+                limite=limite,
+                numero_saque=numero_saque,
+                limite_saque=LIMITE_SAQUE
+            )
 
         elif opcao == 'e':
             extrato_banco.exibir_extrato(saldo, extrato=extrato)
