@@ -2,6 +2,8 @@ import textwrap
 import deposito 
 import extrato_banco
 import saque
+import novo_usuario
+import nova_conta
 
 def menu():
     menu = """\n
@@ -51,6 +53,12 @@ def main():
 
         elif opcao == 'e':
             extrato_banco.exibir_extrato(saldo, extrato=extrato)
+
+        elif opcao == 'nc':
+            conta = nova_conta.criar_conta(usuario, conta, AGENCIA)
+
+        elif opcao == 'nu':
+            usuario = novo_usuario.criar_usuario(usuario)
 
 main()
 
